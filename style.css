@@ -1,10 +1,56 @@
 /* Colour Variables */
+/*
 :root {
   --colour-background: #ffffff;
   --colour-text: #000000;
-  --colour-primary: yellow; /*placeholder, will update later*/
+  --colour-primary: yellow;
 }
 
 .profile-pic {
   background-image: url(/todo-list/img/Lofi_girl_logo\ \(1\).jpg);
 }
+*/
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #ffc0dc;
+  background-image: linear-gradient(to bottom, #ffc0dc, #ffc0dc, #ffc0dc, #ffc0dc, #ffc0dc, #ffc4d6, #ffc8d2, #ffcccf, #ffd7cd, #ffe4cf, #fff0d7, #fefce3);
+}
+
+
+/* ---------- FORM ---------- */
+
+
+/* ---------- LIST ---------- */
+.STATUS {
+  margin: 5px 0px;
+  border-left: 5px solid;
+  padding: 5px 10px;
+}
+
+.done {border-color: lime;}
+.work {border-color: gold;}
+.risk {border-color: red;}
+
+.ListName {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.AssignedTo {
+  text-decoration: none;
+}
+
+.Description {
+  color: grey;
+}
+
+
+/* ---------- FOOTER ---------- */
