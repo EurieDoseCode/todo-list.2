@@ -5,6 +5,26 @@
   --colour-primary: yellow; /*placeholder, will update later*/
 }
 
-.profile-pic {
-  background-image: url(/todo-list/img/Lofi_girl_logo\ \(1\).jpg);
+.profile-picture {
+  background-image: url("/todo-list/img/final_05d7e96e-2bd6-423b-a1c3-d1a49d39ccb1.webp");
 }
+
+#Logo {
+  height: 200px;
+  width: 200px;
+   margin: 0 auto;
+   display: block;
+}
+
+#Heading-lego {
+   height: 200px;
+   width: 200px;
+   margin: 0 auto;
+   display: block;
+
+}
+
+.text-center {
+  align-items: center;
+}
+
