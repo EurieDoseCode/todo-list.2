@@ -4,3 +4,7 @@
   --colour-text: #000000;
   --colour-primary: yellow; /*placeholder, will update later*/
 }
+
+.profile-pic {
+  background-image: url(/todo-list/img/Lofi_girl_logo\ \(1\).jpg);
+}
