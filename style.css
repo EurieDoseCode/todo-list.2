@@ -29,28 +29,35 @@ body {
 
 
 /* ---------- LIST ---------- */
-.STATUS {
-  margin: 5px 0px;
-  border-left: 5px solid;
-  padding: 5px 10px;
-}
-
-.done {border-color: lime;}
-.work {border-color: gold;}
-.risk {border-color: red;}
-
-.ListName {
+.Status {
+  margin: 10px 0px;
+  padding: 5px;
+  text-align: center;
   text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: large;
   font-weight: bold;
 }
 
-.AssignedTo {
-  text-decoration: none;
+.done {background-color: lime;}
+.review {background-color: gold;}
+.in-progress {background-color: orange;}
+.to-do {background-color: red;}
+
+.Name {
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
 .Description {
   color: grey;
+  margin: 10px 0px;
 }
 
+.AssignedTo, .DueDate {
+  text-decoration: none;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
 
 /* ---------- FOOTER ---------- */
