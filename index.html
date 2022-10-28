@@ -27,13 +27,63 @@
       </div>
 
           <!-- To do list function -->
-
          <div class="row" id="form">
-
           <div class="col">
-
-           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam magni voluptatibus doloremque illum asperiores quis nemo ipsum eaque atque amet harum, ratione ipsam incidunt labore cum ex, debitis fugit architecto.</p>
-            
+           <!-- Accordion start -->
+           <div class="accordion accordion-flush" id="accordionTodoAdd">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">Add item to list</button>
+              </h2>
+              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionTodoAdd">
+                <div class="accordion-body">
+                  <!-- Task create form start -->
+                  <form class="row">
+                    <div class="col-6"><!-- Task details -->
+                      <div>
+                        <label class="form-label">Task: <input class="form-control" id="Name" type="text" required></label><!--Nesting inside label = association, reducing code; see https://webaim.org/techniques/forms/controls#input-->
+                      </div>
+                      <div>
+                        <label class="form-label">Task description: <textarea class="form-control" name="" id="Description" cols="40" rows="4"></textarea></label> <!--missing name-->
+                      </div>
+                    </div>
+                    <div class="col-6"><!-- Task status -->
+                      <div>
+                        <label class="form-label">Assigned to:
+                          <input class="form-control" type="text" list="AssignedList" id="AssignedTo" name="AssignedTo">
+                          <datalist id="AssignedList">
+                            <option value="Eurie">Eurie</option>
+                            <option value="V-K">V-K</option>
+                            <option value="Sarah">Sarah</option>
+                          </datalist>
+                        </label>
+                      </div>
+                      <div>
+                        <label class="form-label">Due date: <input class="form-control" type="date" id="DueDate"></label>
+                      </div>
+                      <div>
+                        <label class="form-label">Status:
+                          <select class="form-select" id="Status" required>
+                            <option value="">(select one)</option>
+                            <option value="1">To-Do</option>
+                            <option value="2">In progress</option>
+                            <option value="3">Review</option>
+                            <option value="4">Done</option>
+                          </select>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-12 mx-auto text-center"><!-- Buttons -->
+                      <button class="btn btn-primary" type="submit">Submit</button> <!--make coloured because CTA-->
+                      <button class="btn btn-outline-danger" type="button">Clear</button>
+                    </div>
+                  </form>
+                  <!-- Task create form end -->
+                </div>
+              </div>
+            </div>
+          </div>
+           <!-- Accordion end -->
           </div>
          </div>
 
