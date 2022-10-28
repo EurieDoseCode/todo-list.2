@@ -4,12 +4,30 @@
   --colour-background: #ffffff;
   --colour-text: #000000;
   --colour-primary: yellow;
-}
+}*/
 
 .profile-pic {
   background-image: url(/todo-list/img/Lofi_girl_logo\ \(1\).jpg);
 }
-*/
+
+#Logo {
+  height: 200px;
+  width: 200px;
+   margin: 0 auto;
+   display: block;
+}
+
+#Heading-lego {
+   height: 200px;
+   width: 200px;
+   margin: 0 auto;
+   display: block;
+
+}
+
+.text-center {
+  align-items: center;
+}
 
 html {
   height: 100%;
