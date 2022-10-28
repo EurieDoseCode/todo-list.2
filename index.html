@@ -4,50 +4,199 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Lofi Todo List</title>
+
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
   </head>
+
   <body>
     <!-- Content starts here -->
     <div class="container">
-
-      <!-- Header-->
-
+      <!-- Header start-->
       <div class="row">
         <div class="col">
           <img src="/todo-list/img/lofi-girl.png" alt="Lofi girl" id="Logo" >
-
         </div>
       </div>
 
       <div class="row"></div>
-      <div class="col text-center">
-        <h1 class="font-Heading"> Lofi Girl Todo List</h1>
+        <div class="col text-center">
+          <h1 class="font-Heading"> Lofi Girl Todo List</h1>
+        </div>
       </div>
+      <!-- Header end -->
 
-          <!-- To do list function -->
-
-         <div class="row" id="form">
-
-          <div class="col">
-
-           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam magni voluptatibus doloremque illum asperiores quis nemo ipsum eaque atque amet harum, ratione ipsam incidunt labore cum ex, debitis fugit architecto.</p>
-            
+      <!-- To do list start -->
+      <div class="row" id="form">
+        <!-- Accordion start -->
+          <div class="accordion accordion-flush" id="accordionTodoAdd">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">Add item to list</button>
+              </h2>
+              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionTodoAdd">
+                <div class="accordion-body">
+                  <!-- Task create form start -->
+                  <form class="row">
+                    <div class="col-xs-12 col-md-6"><!-- Task details -->
+                      <div>
+                        <label class="form-label">Task: <input class="form-control" id="Name" type="text" required></label><!--Nesting inside label = association, reducing code; see https://webaim.org/techniques/forms/controls#input-->
+                      </div>
+                      <div>
+                        <label class="form-label">Task description: <textarea class="form-control" name="" id="Description" cols="40" rows="4"></textarea></label> <!--missing name-->
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6"><!-- Task status -->
+                      <div>
+                        <label class="form-label">Assigned to:
+                          <input class="form-control" type="text" list="AssignedList" id="AssignedTo" name="AssignedTo">
+                          <datalist id="AssignedList">
+                            <option value="Eurie">Eurie</option>
+                            <option value="V-K">V-K</option>
+                            <option value="Sarah">Sarah</option>
+                          </datalist>
+                        </label>
+                      </div>
+                      <div>
+                        <label class="form-label">Due date: <input class="form-control" type="date" id="DueDate" pattern="\d{4}-\d{2}-\d{2}"></label>
+                      </div>
+                      <div>
+                        <label class="form-label">Status:
+                          <select class="form-select" id="Status" required>
+                              <option value="">(select one)</option>
+                              <option value="1">To-Do</option>
+                              <option value="2">In progress</option>
+                              <option value="3">Review</option>
+                              <option value="4">Done</option>
+                          </select>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="mt-3 gap-2 col-12 mx-auto"><!-- Buttons -->
+                      <button class="btn btn-primary" type="submit">Submit</button> <!--make coloured because CTA-->
+                      <button class="btn btn-outline-danger" type="button">Clear</button>
+                    </div>
+                  </form>
+                  <!-- Task create form end -->
+                </div>
+              </div>
+            </div>
           </div>
-         </div>
+        <!-- Accordion end -->
+      </div>
+      <!-- LIST -->
+      <div class="card mt-4" id="list">
+      <ul class="list-group list-group-flush">
 
-         <div class="row" id="">
+        <li class="list-group-item">
+          <div class="STATUS done">
+            <div class="row">
+              <div class="col-8">
+                <h4 class="ListName">Task #01</h4>
+              </div>
+              <div class="col-4">
+                <div class="text-end">
+                  <a href="#" class="btn btn-success">Finish</a>
+                  <a href="#" class="btn btn-danger">X</a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <h6 class="AssignedTo">Sarah</h6>
+              <div class="Description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, cupiditate!</div>
+            </div>
+          </div>
+        </li>
 
-          <div class="col"></div>
+        <li class="list-group-item">
+          <div class="STATUS work">
+            <div class="row">
+              <div class="col-8">
+                <h4 class="ListName">Task #02</h4>
+              </div>
+              <div class="col-4">
+                <div class="text-end">
+                  <a href="#" class="btn btn-success">Finish</a>
+                  <a href="#" class="btn btn-danger">X</a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <h6 class="AssignedTo">Eurie</h6>
+              <div class="Description">Lorem ipsum dolor sit amet.</div>
+            </div>
+          </div>
+        </li>
+        
+        <li class="list-group-item">
+          <div class="STATUS work">
+            <div class="row">
+              <div class="col-8">
+                <h4 class="ListName">Task #03</h4>
+              </div>
+              <div class="col-4">
+                <div class="text-end">
+                  <a href="#" class="btn btn-success">Finish</a>
+                  <a href="#" class="btn btn-danger">X</a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <h6 class="AssignedTo">V-K</h6>
+              <div class="Description">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores nisi quidem aperiam officiis, dolore repellendus impedit mollitia dolorem facilis aliquid!</div>
+            </div>
+          </div>
+        </li>
 
-         </div>
+        <li class="list-group-item">
+          <div class="STATUS done">
+            <div class="row">
+              <div class="col-8">
+                <h4 class="ListName">Task #04</h4>
+              </div>
+              <div class="col-4">
+                <div class="text-end">
+                  <a href="#" class="btn btn-success">Finish</a>
+                  <a href="#" class="btn btn-danger">X</a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <h6 class="AssignedTo">Eurie</h6>
+              <div class="Description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam neque reiciendis quia! Dolorum cumque ipsa, obcaecati, numquam quas rem officia omnis sequi dolor esse tenetur. Iusto tempore reprehenderit sint, aperiam reiciendis soluta dolorum mollitia explicabo! Dolor tenetur exercitationem eaque, quis, accusamus tempore ex eum omnis fugiat iste iusto. Unde, nam!</div>
+            </div>
+          </div>
+        </li>
 
+        <li class="list-group-item">
+          <div class="STATUS risk">
+            <div class="row">
+              <div class="col-8">
+                <h4 class="ListName">Task #05</h4>
+              </div>
+              <div class="col-4">
+                <div class="text-end">
+                  <a href="#" class="btn btn-success">Finish</a>
+                  <a href="#" class="btn btn-danger">X</a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <h6 class="AssignedTo">V-K</h6>
+              <div class="Description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam nesciunt possimus amet labore aspernatur voluptas doloremque voluptatum corrupti ex numquam impedit beatae eaque, nulla ad ut quia quo? Voluptate, dolores?</div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+      <!-- To do list end -->
          <!-- Footer-->
-
          <div class="row">
           <div class="col text-center">
             <p>
@@ -70,17 +219,9 @@
             </p>
           </div> 
          </div>
-       
     </div>
-    
-
-
-
-
-
-
     <!-- Content ends here -->
-    <!-- Bootstrap -->
+    <!-- BOOTSTRAP -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   </body>
 </html>
