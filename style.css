@@ -1,10 +1,30 @@
-/* Colour Variables */
+/* ---------- COLOUR VARIABLES ---------- */
 /*
 :root {
   --colour-background: #ffffff;
   --colour-text: #000000;
   --colour-primary: yellow;
 }*/
+
+/* ---------- GENERAL ---------- */
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #ffc0dc;
+  background-image: linear-gradient(to bottom, #ffc0dc, #ffc0dc, #ffc0dc, #ffc0dc, #ffc0dc, #ffc4d6, #ffc8d2, #ffcccf, #ffd7cd, #ffe4cf, #fff0d7, #fefce3);
+}
+
+.text-center {
+  align-items: center;
+}
+
+/* ---------- HEADER ---------- */
 
 .profile-pic {
   background-image: url(/todo-list/img/Lofi_girl_logo\ \(1\).jpg);
@@ -24,22 +44,11 @@
    display: block;
 
 }
-
-.text-center {
-  align-items: center;
-}
-
-html {
-  height: 100%;
-}
-
-body {
-  height: 100%;
-  margin: 0;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-color: #ffc0dc;
-  background-image: linear-gradient(to bottom, #ffc0dc, #ffc0dc, #ffc0dc, #ffc0dc, #ffc0dc, #ffc4d6, #ffc8d2, #ffcccf, #ffd7cd, #ffe4cf, #fff0d7, #fefce3);
+.font-Heading {
+   font-family: 'Satisfy', cursive;
+   color: white;
+   text-shadow:2px 2px rgba(0, 0, 0, 0.5);
+   margin: 5px 0px;
 }
 
 
@@ -72,3 +81,6 @@ body {
 
 
 /* ---------- FOOTER ---------- */
+.Github-logo {
+   padding: 5px;
+}
