@@ -25,11 +25,6 @@ body {
 
 /* ---------- HEADER ---------- */
 
-.profile-pic {
-  background-image: url(/todo-list/img/Lofi_girl_logo\ \(1\).jpg);
-}
-}*/
-
 #Logo {
   height: 200px;
   width: 200px;
@@ -42,8 +37,8 @@ body {
    width: 200px;
    margin: 0 auto;
    display: block;
-
 }
+
 .font-Heading {
    font-family: 'Satisfy', cursive;
    color: white;
