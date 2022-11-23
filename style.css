@@ -6,18 +6,19 @@
   --colour-primary: yellow;
 
 /* ---------- GENERAL ---------- */
-html {
+/*html {
   height: 100%;
-}
+}*/
 
 body {
-  height: 100%;
-  margin: 0;
+  /*height: 100%;*/
+  /*margin: 0;*/
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-color: rgb(255, 192, 220);
   background-image: linear-gradient(to bottom, #ffc0dc, #ffc0dc, #ffc0dc, #ffc0dc, #ffc0dc, #ffc4d6, #ffc8d2, #ffcccf, #ffd7cd, #ffe4cf, #fff0d7, #fefce3);
 }
+
 
 a {
   color: rgb(168, 68, 174);
@@ -46,6 +47,7 @@ a:hover {
   width: 200px;
   margin: 0 auto;
   display: block;
+
   animation-name: lofi-girl;
   animation-duration: 1.5s;
   animation-iteration-count: infinite;
