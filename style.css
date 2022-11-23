@@ -6,44 +6,32 @@
   --colour-primary: yellow;
 
 /* ---------- GENERAL ---------- */
-html {
+/*html {
   height: 100%;
-}
+}*/
 
 body {
-  height: 100%;
-  margin: 0;
+  /*height: 100%;*/
+  /*margin: 0;*/
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-color: #ffc0dc;
   background-image: linear-gradient(to bottom, #ffc0dc, #ffc0dc, #ffc0dc, #ffc0dc, #ffc0dc, #ffc4d6, #ffc8d2, #ffcccf, #ffd7cd, #ffe4cf, #fff0d7, #fefce3);
 }
 
-.text-center {
-  align-items: center;
-}
-
 /* ---------- HEADER ---------- */
-
-#Logo {
+#logo {
   height: 200px;
   width: 200px;
-   margin: 0 auto;
-   display: block;
-}
-
-#Heading-lego {
-   height: 200px;
-   width: 200px;
-   margin: 0 auto;
-   display: block;
+  margin: 0 auto;
+  display: block;
 }
 
 .font-Heading {
-   font-family: 'Satisfy', cursive;
-   color: white;
-   text-shadow:2px 2px rgba(0, 0, 0, 0.5);
-   margin: 5px 0px;
+  font-family: 'Satisfy', cursive;
+  color: white;
+  text-shadow:2px 2px rgba(0, 0, 0, 0.5);
+  margin: 5px 0px;
 }
 
 
@@ -51,6 +39,10 @@ body {
 
 
 /* ---------- LIST ---------- */
+#list {
+  padding-left: 0;
+}
+
 .Status {
   margin: 10px 0px;
   padding: 5px;
