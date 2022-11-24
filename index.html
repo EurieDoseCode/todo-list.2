@@ -15,7 +15,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Satisfy&display=swap" rel="stylesheet">
 
     <!-- SCRIPT -->
-    <script defer src="./script.js"></script>
+    <script defer src="./js/date.js"></script>
+    <script defer src="./js/form-validation.js"></script>
   </head>
 
   <body>
@@ -53,13 +54,13 @@
                         <label class="form-label">Task: <input class="form-control" id="Name" type="text" required></label><!--Nesting inside label = association, reducing code; see https://webaim.org/techniques/forms/controls#input-->
                       </div>
                       <div>
-                        <label class="form-label">Task description: <textarea class="form-control" name="Description" id="Description" cols="40" rows="4"></textarea></label>
+                        <label class="form-label">Task description: <textarea class="form-control" name="Description" id="Description" cols="40" rows="4" required></textarea></label>
                       </div>
                      </div>
                     <div class="col-xs-12 col-md-6"><!-- Task status -->
                       <div id="formAssignedTo" class="error-handling">
                         <label class="form-label">Assigned to:
-                          <input class="form-control" type="text" list="AssignedList" id="AssignedTo" name="AssignedTo">
+                          <input class="form-control" type="text" list="AssignedList" id="AssignedTo" name="AssignedTo" required>
                           <datalist id="AssignedList">
                             <option value="Eurie">Eurie</option>
                             <option value="V-K">V-K</option>
@@ -68,7 +69,7 @@
                         </label>
                       </div>
                     <div id="formDueDate" class="error-handling">
-                      <label class="form-label">Due date: <input class="form-control" type="date" id="DueDate" pattern="\d{4}-\d{2}-\d{2}"></label>
+                      <label class="form-label">Due date: <input class="form-control" type="date" id="DueDate" pattern="\d{4}-\d{2}-\d{2}" required></label>
                     </div>
                     <div>
                       <label class="form-label">Status:
