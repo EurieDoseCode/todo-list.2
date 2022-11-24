@@ -14,13 +14,20 @@ function validateTaskForm(form) {
     }
   });
 
-  // Can this be moved to Variables section?
   const fields = Array.from(form.elements); // create an array from all elements in a form
+
+  // Loop through fields to remove buttons
+  /*could have targeted fields[6] directly, but abstracting permits changes to form structure in future*/
+  for (let i = 0; i < fields.length; i++) {
+    if (fields[i].nodeName === 'BUTTON') {
+      fields.splice(i, 2);
+    }
+  };
 
   // For each item in fields array
   fields.forEach(field => {
     field.setAttribute('aria-invalid', false); //stops fields failing validation before info entered
-    // Validation messages: Currently spits out for everything in form. Need to restructure to exclude buttons
+    // Inject validation messages directly into HTML
     const errorBox = document.createElement('p'); // currently takes up room in code; could set display: none in CSS until submit button is clicked
     const errorId = field.id + 'Error'; // concatenated string 
     errorBox.setAttribute('id', errorId);
@@ -30,15 +37,17 @@ function validateTaskForm(form) {
     // Event listener: invalid values in fields
     field.addEventListener('invalid', () => {
       field.setAttribute('aria-invalid', true);
+      //field.style.display = 'block';
       const message = errorMessage(field);
       errorBox.textContent = message || field.validationMessage; // add browser default error messages inside p stemming from errorBox
     });
 
     // Event listener: on input of values in fields
     field.addEventListener('input', () => {
-      const valid = field.checkValidity(); // can this be moved to variables section?
+      const valid = field.checkValidity();
       if (valid) {
         field.setAttribute('aria-invalid', false);
+        //field.style.display = 'none';
         errorBox.textContent = '';
       };
     });
