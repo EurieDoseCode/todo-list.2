@@ -162,14 +162,15 @@ label {
   text-transform: uppercase; /*capitalise YYYY-MM-DD*/
 }
 
-/* Injected error messages 
-#NameError,
-#DescriptionError,
-#AssignedToError,
-#DueDateError,
-#StatusError {
+/* Injected error messages */
+.toggle-off {
   display: none;
-}*/
+}
+
+.toggle-on {
+  display: block;
+  margin: 0 0 0.7em 0;
+}
 
 /* ---------- LIST ---------- */
 #list {

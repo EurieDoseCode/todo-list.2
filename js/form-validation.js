@@ -1,5 +1,4 @@
 /* TODO LIST
-- work out due date validation
 - (stretch) toggle error p's
 */
 
@@ -58,13 +57,14 @@ function validateTaskForm(form) {
     const errorBox = document.createElement('p'); // currently takes up room in code; could set display: none in CSS until submit button is clicked
     const errorId = field.id + 'Error'; // concatenated string 
     errorBox.setAttribute('id', errorId);
+    errorBox.setAttribute('class', 'toggle-off');
     field.setAttribute('aria-describedby', errorId);
     field.insertAdjacentElement('afterend', errorBox); // insert error messages next to field
 
     // Event listener: invalid values in fields
     field.addEventListener('invalid', () => {
       field.setAttribute('aria-invalid', true);
-      //field.style.display = 'block';
+      errorBox.setAttribute('class', 'toggle-on');
       const message = errorMessage(field);
       errorBox.textContent = message || field.validationMessage; // add browser default error messages inside p stemming from errorBox
     });
@@ -74,7 +74,7 @@ function validateTaskForm(form) {
       const valid = field.checkValidity();
       if (valid) {
         field.setAttribute('aria-invalid', false);
-        //field.style.display = 'none';
+        errorBox.setAttribute('class', 'toggle-off');
         errorBox.textContent = '';
       };
     });
