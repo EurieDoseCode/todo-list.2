@@ -1,5 +1,32 @@
+/* TODO LIST
+- work out due date validation
+- (stretch) toggle error p's
+*/
+
 // Variables
 const form = document.querySelector('form');
+const fields = Array.from(form.elements); // create an array from all elements in a form
+//const labels = [];
+
+function necessaryVariables() {
+  // Set up date to use for validation. Need to find a way to reuse pre-existing in date to optimise
+  DueDate.min = new Date().toISOString().split('T')[0];
+
+  // Loop through fields to remove buttons
+  /*Could have targeted fields[6] directly - abstracting permits changes to form structure in future. Find a way to improve code to further abstract*/
+  for (let i = 0; i < fields.length; i++) {
+    if (fields[i].nodeName === 'BUTTON') {
+      fields.splice(i, 2);
+    };
+  };
+
+  /*// Extract input labels as plain text & push results into labels array
+  // Uncertain if still need to use
+  for (let i = 0; i < fields.length; i++) {
+    let inputMaps = fields[i].labels[0].outerText.slice(0, -2); // scoping issue needs resolving
+    labels.push(inputMaps);
+  };*/
+}
 
 // Form validation
 /*Heavy assistance from https://oliverjam.es/articles/better-native-form-validation*/
@@ -14,7 +41,7 @@ function validateTaskForm(form) {
     }
   });
 
-  const fields = Array.from(form.elements); // create an array from all elements in a form
+  //const fields = Array.from(form.elements); // create an array from all elements in a form
 
   // Loop through fields to remove buttons
   /*could have targeted fields[6] directly, but abstracting permits changes to form structure in future*/
@@ -57,13 +84,56 @@ function validateTaskForm(form) {
 // Custom error messages
 function errorMessage(field) {
   const validity = field.validity;
-  if (validity.valueMissing) {
-    return 'Value is missing'; // replace with more useful error message
+  if (validity.valueMissing) { // is the field empty?
+    switch (field.attributes.id.nodeValue)  { //target by value in id
+      case 'Name':
+        return 'Task cannot be empty';
+        break;
+      case 'Description':
+        return 'Task description cannot be empty';
+        break;
+      case 'AssignedTo':
+        return 'Assigned to cannot be empty';
+        break;
+      case 'DueDate':
+        return 'Please select a due date';
+        break;
+      case 'Status':
+        return 'Status must be selected';
+        break;
+      default:
+        return field.validationMessage;
+        break;
+    };
   };
-  if (validity.typeMismatch) {
-    return 'Value is invalid';  // replace with more useful error message
+  if (validity.tooShort) { // has minlength been hit?
+    switch (field.attributes.id.nodeValue) {
+      case 'Name':
+        return 'Task needs to be 9 characters or longer';
+        break;
+      case 'Description':
+        return 'Task description needs to be 16 characters or longer';
+        break;
+      case 'AssignedTo':
+        return 'Assigned to needs to be 9 characters or longer';
+        break;
+      default:
+        return field.validationMessage;
+        break;
+    };
+  };
+  if (validity.rangeUnderflow) { // was a past date selected?
+    switch (field.attributes.id.nodeValue) {
+      case 'DueDate':
+        return 'Due date cannot be in the past';
+        break;
+      default:
+        return field.validationMessage;
+        break;
+    }
   }
 };
 
-// Call form validation
+// Call functions
+necessaryVariables();
 validateTaskForm(form);
