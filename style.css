@@ -6,28 +6,26 @@
   --colour-primary: yellow;
 
 /* ---------- GENERAL ---------- */
-/*html {
-  height: 100%;
-}*/
-
 body {
-  /*height: 100%;*/
-  /*margin: 0;*/
-  background-repeat: no-repeat;
+  height: 100vh;
+  background-color: rgba(255, 192, 220, 0);
+  background-image: url(./img/background.png), linear-gradient(to bottom, #ffc0dc, #ffc0dc, #ffc0dc, #ffc0dc, #ffc0dc, #ffc4d6, #ffc8d2, #ffcccf, #ffd7cd, #ffe4cf, #fff0d7, #fefce3);
   background-attachment: fixed;
-  background-color: rgb(255, 192, 220);
-  background-image: linear-gradient(to bottom, #ffc0dc, #ffc0dc, #ffc0dc, #ffc0dc, #ffc0dc, #ffc4d6, #ffc8d2, #ffcccf, #ffd7cd, #ffe4cf, #fff0d7, #fefce3);
+  background-blend-mode: soft-light;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(2px);
 }
 
-
 a {
-  color: rgb(168, 68, 174);
+  color: rgba(232, 77, 155, 0.75);
   transition: 0.5s ease;
 }
 
 a:hover {
-  color: rgb(254, 252, 227);
-  background-color: rgba(232, 77, 155, 0.75);
+  color: rgb(255, 255, 211);
+  background-color: rgba(232, 77, 155, 0.5);
   letter-spacing: 1px;
 }
 
@@ -37,8 +35,19 @@ a:hover {
 }
 
 .text-center {
-  align-items: center;
-  margin: 20px 20px;
+  margin: 24px 20px;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+  background-blend-mode: lighten;
+  background-color: rgba(255, 192, 220, 0);
+  background-image: url(./img/background.png), linear-gradient(to bottom, #ffc0dc, #ffc0dc, #ffc0dc, #ffc0dc, #ffc0dc, #ffc4d6, #ffc8d2, #ffcccf, #ffd7cd, #ffe4cf, #fff0d7, #fefce3);
+}
+
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 1px 1px 10px rgba(255 0 128);
+	border-radius: 5px;
 }
 
 /* ---------- HEADER ---------- */
@@ -74,7 +83,7 @@ a:hover {
   background-image: url(./img/equalizer.gif);
   background-repeat: repeat-x;
   background-position: center;
-  margin: 30px 0;
+  margin: 30px 00px;
 }
 
 #line-heading {
@@ -99,7 +108,6 @@ a:hover {
   font-family: 'Satisfy', cursive;
   font-size: 32px;
   font-weight: normal;
-  margin: 5px 0px;
   text-shadow: 1px 1px 2px rgba(255, 0, 128, 0.5),
                2px 2px 2px rgba(255, 0, 128, 0.25),
                -1px -1px 1px rgba(255, 251, 0, 0.5),
@@ -125,17 +133,40 @@ a:hover {
 }
 
 /* ---------- FORM ---------- */
-/*note: all the form elements overwrite bootstrap's css,
-feel free to turn the entire form elements into comments
-to see the difference and changes (this is still a wip)*/
-
 .accordion {
-  --bs-accordion-bg: rgba(255, 223, 237);
-  font-family: 'Caveat', cursive;
+  --bs-accordion-btn-focus-box-shadow: none;
+  border-radius: 0.375rem!important;
+  transition: 0.5s ease;
+  margin: 15px 0;
+}
+
+.accordion-item {
+  --bs-accordion-bg: none;
+  box-shadow: 2px 2px 3px rgba(135, 0, 68, 0.5);
+  border-radius: 0.375rem!important;
+  border: 0;
+}
+
+.accordion-flush .accordion-item .accordion-button {
+  --bs-accordion-bg: rgb(255, 223, 237);
+  border-radius: 0.375rem 0.375rem 0 0;
+}
+
+.accordion-flush .accordion-item .accordion-button.collapsed {
+  border-radius: 0.375rem;
+  border: 0;
 }
 
 .accordion-button {
-  background-color: rgba(255, 145, 191, 0.8);
+  color: rgba(179, 0, 90, 0.8);
+  background-color: rgba(255, 111, 171, 0.9);
+  font-family: 'Baloo Paaji 2', cursive;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.accordion-button.accordion-button.collapsed {
+  transition-delay: 0.28s;
 }
 
 .accordion-button:not(.collapsed) {
@@ -143,62 +174,208 @@ to see the difference and changes (this is still a wip)*/
   background-color: rgba(255, 0, 128, 0.5);
 }
 
+.accordion-body {
+  font-weight: bold;
+  font-family: 'Baloo Paaji 2', cursive;
+  background-color: rgba(255, 223, 237, 0.75);
+  border-radius: 0 0 0.375rem 0.375rem;
+}
+
 .form-control, .form-select {
-  font-family: 'Caveat', cursive;
-  color: rgb(129, 0, 129);
+  color: rgba(73, 0, 73, 0.75);
   background-color: rgba(255, 255, 255, 0.75);
   border: 2px solid rgb(255, 192, 220);
+  transition: 0.5s;
+}
+
+.form-control:focus, .form-select:focus {
+  color: rgb(0, 0, 0);
+  background-color: rgba(255, 0, 128, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 10px rgb(255, 255, 255), inset 0 0 10px rgba(255, 0, 128, 0.25);
 }
 
 label {
   display: block; /*input width to 100%*/
 }
 
-.mx-auto {
-  text-align: right; /*button alignment*/
-}
-
 #DueDate {
   text-transform: uppercase; /*capitalise YYYY-MM-DD*/
 }
 
+.mx-auto {
+  text-align: right; /*button alignment*/
+}
+
+.mx-auto .btn {
+  margin: 0 2px;
+  width: 6em;
+}
+
+.btn-primary {
+  background-color: rgb(255, 111, 171);
+  border: 1px solid rgb(255, 111, 171);
+  font-family: 'Baloo Paaji 2', cursive;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.btn-primary:hover, .btn-primary:active, .btn-primary-danger:active:focus {
+  color:rgb(255, 255, 255);
+  background-color: rgba(255, 0, 128, 0.8);
+  --bs-btn-active-bg: rgba(255, 0, 128, 0.8);
+  border: 1px solid rgba(255, 0, 128, 0.8);
+  --bs-btn-active-border-color: 1px solid rgba(255, 0, 128, 0.8);
+  box-shadow: 2px 2px 1px rgb(255, 255, 255);
+  letter-spacing: 1px;
+}
+
+.btn-primary:focus, .btn-primary:active:focus {
+  background-color: rgb(255, 111, 171);
+  border: 1px solid rgb(255, 111, 171);
+  box-shadow: none;
+}
+
+.btn-outline-danger {
+  color: rgba(255, 0, 128, 0.8);
+  background-color:rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 0, 128, 0.8);
+  font-family: 'Baloo Paaji 2', cursive;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.btn-outline-danger:hover, .btn-outline-danger:active, .btn-outline-danger:active:focus {
+  color:rgba(255, 0, 128, 0.8);
+  background-color: rgba(255, 255, 255, 0.8);
+  --bs-btn-active-bg: rgba(255, 255, 255, 0.8);
+  box-shadow: 2px 2px 1px rgba(255, 0, 128, 0.8);
+  letter-spacing: 1px;
+}
+
+.btn-outline-danger:focus, .btn-outline-danger:active:focus {
+  background-color:rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 0, 128, 0.8);
+  box-shadow: none;
+}
+
 /* ---------- LIST ---------- */
 #list {
-  padding-left: 0;
+  padding: 0;
+  margin-bottom: 50px;
+}
+
+.card {
+  margin-top: 10px;
+  --bs-card-border-width: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 2px 2px 3px rgba(232, 77, 155, 0.5);
+  transition: 0.5s;
+}
+
+.card:hover {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 3px 3px 5px rgba(135, 0, 68, 0.5);
+  mix-blend-mode: normal;
 }
 
 .Status {
-  margin: 10px 0px;
-  padding: 5px;
+  margin: 0 -8px 10px;
+  padding: 3px;
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: large;
+  font-family: 'Baloo Paaji 2', cursive;
   font-weight: bold;
+  letter-spacing: 3px;
+  color: rgba(85, 0, 42, 0.8);
+  transition: 0.5s;
 }
 
-.done {background-color: lime;}
-.review {background-color: gold;}
-.in-progress {background-color: orange;}
-.to-do {background-color: red;}
+.done {
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), rgb(154, 255, 100), rgb(154, 255, 100), rgba(255, 255, 255, 0));
+  border-top: 1px solid rgba(154, 255, 110, 0.3);
+  border-bottom: 1px solid rgba(154, 255, 100, 0.3);
+}
+
+.review {
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), rgb(255, 226, 63), rgb(255, 226, 63), rgba(255, 255, 255, 0));
+  border-top: 1px solid rgba(255, 226, 63, 0.3);
+  border-bottom: 1px solid rgba(255, 226, 63, 0.3);
+}
+
+.in-progress {
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), rgb(255, 189, 68), rgb(255, 189, 68), rgba(255, 255, 255, 0));
+  border-top: 1px solid rgba(255, 189, 68, 0.3);
+  border-bottom: 1px solid rgba(255, 189, 68, 0.3);
+}
+
+.to-do {
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), rgb(255, 81, 81), rgb(255, 81, 81), rgba(255, 255, 255, 0));
+  border-top: 1px solid rgba(255, 81, 81, 0.2);
+  border-bottom: 1px solid rgba(255, 81, 81, 0.2);
+}
 
 .Name {
-  text-transform: uppercase;
+  font-family: 'Baloo Paaji 2', cursive;
+  font-size: xx-large;
   font-weight: 500;
 }
 
+.btn-success, .btn-danger {
+  padding: 4px 12px;
+  transition: 0.5s;
+  border: none;
+}
+
+.btn-success {
+  background-color: rgb(130, 194, 98);
+}
+
+.btn-success:hover {
+  color: rgb(130, 194, 98);
+  background-color: rgba(42, 167, 0, 0.25);
+  box-shadow: 0 0 5px rgba(42, 167, 0, 0.25);
+  font-weight: bold;
+}
+
+.btn-danger {
+  background-color: rgb(206, 0, 48);
+}
+
+.btn-danger:hover {
+  color: rgba(206, 0, 48);
+  background-color: rgba(255, 0, 0, 0.5);
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+  font-weight: bold;
+}
+
 .Description {
-  color: rgb(168, 68, 174);
-  margin: 10px 0px;
+  /* color: rgb(168, 68, 174); */
+  padding: 6px 12px;
 }
 
 .AssignedTo, .DueDate {
   text-decoration: none;
   font-weight: 500;
-  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 /* ---------- FOOTER ---------- */
-.Github-logo {
-   padding: 5px;
+footer {
+  font-family: 'Baloo Paaji 2', cursive;
+}
+
+.GitHub {
+  margin: 0 2px;
+  padding: 0 3px 0 5px;
+  transition: 0.5s ease;
+}
+
+.GitHub:hover {
+  margin: 0 2px;
+  padding: 0 3px 0 5px;
+}
+
+.GitHub:hover img {
+  filter: invert(42%) sepia(93%) saturate(150%) hue-rotate(30deg) brightness(200%) contrast(119%);
 }
