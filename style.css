@@ -259,6 +259,16 @@ label {
   box-shadow: none;
 }
 
+/* Injected error messages */
+.toggle-off {
+  display: none;
+}
+
+.toggle-on {
+  display: block;
+  margin: 0 0 0.7em 0;
+}
+
 /* ---------- LIST ---------- */
 #list {
   padding: 0;
