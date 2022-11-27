@@ -171,6 +171,10 @@ a:hover {
   font-size: 22px;
 }
 
+.accordion-button:focus {
+  border-color: none;
+}
+
 .accordion-button.accordion-button.collapsed {
   transition-delay: 0.28s;
 }
@@ -361,7 +365,7 @@ label {
 /*---------- FINISH ----------*/
 .btn-success {
   background-color: rgb(130, 194, 98);
-  width: 4.75em;
+  width: 4.7em;
 }
 
 .btn-success:hover {
@@ -397,8 +401,7 @@ label {
 /*---------- LIST CONTENT ----------*/
 .Name {
   font-family: 'Baloo Paaji 2', cursive;
-  font-size: xx-large;
-  font-weight: 500;
+  font-weight: bold;
 }
 
 .Description {
@@ -406,9 +409,20 @@ label {
 }
 
 .AssignedTo, .DueDate {
-  text-decoration: none;
-  font-weight: 500;
+  font-family: 'Baloo Paaji 2', cursive;
+  font-weight: bold;
   margin-top: 5px;
+}
+
+.AssignedTo {
+  color: rgba(100, 0, 23, 0.9);
+}
+
+.DueDate {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 0 15px 15px 0;
 }
 
 /*========== FOOTER ==========*/
