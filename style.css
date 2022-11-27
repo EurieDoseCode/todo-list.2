@@ -326,8 +326,8 @@ label {
 
 .review {
   background: linear-gradient(to left, rgba(255, 255, 255, 0),
-                                       rgb(255, 226, 63),
-                                       rgb(255, 226, 63),
+                                       rgb(255, 234, 112),
+                                       rgb(255, 234, 112),
                                        rgba(255, 255, 255, 0));
   border-top: 1px solid rgba(255, 226, 63, 0.3);
   border-bottom: 1px solid rgba(255, 226, 63, 0.3);
@@ -351,13 +351,14 @@ label {
   border-bottom: 1px solid rgba(255, 81, 81, 0.2);
 }
 
-/*---------- FINISH ----------*/
+/*---------- LIST BUTTONS ----------*/
 .btn-success, .btn-danger {
-  padding: 4px 12px;
+  padding: 5px 12px;
   transition: 0.5s;
   border: none;
 }
 
+/*---------- FINISH ----------*/
 .btn-success {
   background-color: rgb(130, 194, 98);
   width: 4.75em;
@@ -368,6 +369,11 @@ label {
   background-color: rgba(42, 167, 0, 0.25);
   box-shadow: 0 0 5px rgba(42, 167, 0, 0.25);
   font-weight: bold;
+}
+
+.btn-success:focus, .btn-success:active:focus {
+  color: #FFFFFF;
+  background-color: rgb(130, 194, 98);
 }
 
 /*---------- DELETE ----------*/
@@ -381,6 +387,11 @@ label {
   background-color: rgba(255, 0, 0, 0.5);
   box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
   font-weight: bold;
+}
+
+.btn-danger:focus, .btn-danger:active:focus {
+  color: #FFFFFF;
+  background-color: rgb(206, 0, 48);
 }
 
 /*---------- LIST CONTENT ----------*/
