@@ -28,8 +28,8 @@ class TaskManager {
     // HTML TEMPLATE of task list
     createTaskHTML(task) {
         return `
-        <li class="card p-3">
-          <div class="Status done">${task.Status}</div>
+        <li class="card p-3" taskID="${task.ID}">
+          <div class="Status ${task.Status.toLowerCase()}">${task.Status}</div>
           <div class="row">
             <div class="col-7">
               <div class="display-6 Name">${task.Name}</div>

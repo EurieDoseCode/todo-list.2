@@ -368,7 +368,7 @@ label {
   border-bottom: 1px solid rgba(255, 189, 68, 0.3);
 }
 
-.to-do {
+.todo {
   background: linear-gradient(to left, rgba(255, 255, 255, 0),
       rgb(255, 81, 81),
       rgb(255, 81, 81),
