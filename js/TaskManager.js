@@ -29,10 +29,10 @@ class TaskManager {
     createTaskHTML(task) {
         return `
         <li class="card p-3">
-          <div class="Status done">${Status}</div>
+          <div class="Status done">${task.Status}</div>
           <div class="row">
             <div class="col-7">
-              <div class="display-6 Name">${Name}</div>
+              <div class="display-6 Name">${task.Name}</div>
             </div>
             <div class="col-5">
               <div class="text-end">
@@ -42,14 +42,14 @@ class TaskManager {
             </div>
           </div>
           <div class="row">
-            <div class="Description">${Description}</div>
+            <div class="Description">${task.Description}</div>
           </div>
           <div class="row">
             <div class="col-7">
-              <div class="AssignedTo">${AssignedTo}</div>
+              <div class="AssignedTo">${task.AssignedTo}</div>
             </div>
             <div class="col-5">
-              <div class="DueDate text-end">Due Date: <u>${DueDate}</u></div>
+              <div class="DueDate text-end">Due Date: <u>${task.DueDate}</u></div>
             </div>
           </div>
         </li>
