@@ -36,7 +36,7 @@ function validateTaskForm(form) {
     const inputName = document.getElementById("Name").value;
     const inputAssignedTo = document.getElementById("AssignedTo").value;
     const inputDescription = document.getElementById("Description").value;
-    const inputDate = document.getElementById("DueDate").valueAsDate;
+    const inputDate = document.getElementById("DueDate").value;
     const inputStatus = document.getElementById("Status").value;
 
     const allValid = form.checkValidity();
