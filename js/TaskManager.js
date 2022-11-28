@@ -5,7 +5,7 @@ class TaskManager {
         this.tasks = [];
     };
 
-    // IMPORT CLASS
+    // IMPORT class values to factory function
     addTask(Name, Description, AssignedTo, DueDate, Status) {
         const task = {
             ID: this.id++,
@@ -25,7 +25,7 @@ class TaskManager {
 
     }
 
-    // HTML LIST TEMPLATE
+    // HTML TEMPLATE of task list
     createTaskHTML(task) {
         return `
         <li class="card p-3">
@@ -56,7 +56,7 @@ class TaskManager {
         `
     };
 
-    // EXPORT TASK LIST
+    // EXPORT task list to HTML
     render() {
         const displayList = document.querySelector("#list");
 
