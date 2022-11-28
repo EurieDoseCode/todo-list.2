@@ -3,7 +3,7 @@
 // Variables
 const form = document.querySelector('form');
 const fields = Array.from(form.elements); // create an array from all elements in a form
-const taskManager = new TaskManager(); /*import data to TaskManager.js*/
+const taskManager = new TaskManager(); /* EXPORT form values to TaskManager.js */
 //const labels = [];
 
 function necessaryVariables() {
@@ -31,7 +31,7 @@ function necessaryVariables() {
 function validateTaskForm(form) {
   form.setAttribute('novalidate', ''); // prevents browser default validation appearing, can now override
 
-  // EXPORT FORM DATA
+  // IMPORT user input to form values
   form.addEventListener('submit', (event) => {
     const inputName = document.getElementById("Name").value;
     const inputAssignedTo = document.getElementById("AssignedTo").value;
