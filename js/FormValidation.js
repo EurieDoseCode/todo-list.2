@@ -1,10 +1,9 @@
-/* TODO LIST
-- (stretch) toggle error p's
-*/
+//TODO LIST
 
 // Variables
 const form = document.querySelector('form');
 const fields = Array.from(form.elements); // create an array from all elements in a form
+const taskManager = new TaskManager(); /*import data to TaskManager.js*/
 //const labels = [];
 
 function necessaryVariables() {
@@ -32,11 +31,19 @@ function necessaryVariables() {
 function validateTaskForm(form) {
   form.setAttribute('novalidate', ''); // prevents browser default validation appearing, can now override
 
-  // Event listener: submit
+  // EXPORT FORM DATA
   form.addEventListener('submit', (event) => {
-    const allValid = form.checkValidity(); // variable calls method to check all fields in form are valid
+    const inputName = document.getElementById("Name").value;
+    const inputAssignedTo = document.getElementById("AssignedTo").value;
+    const inputDescription = document.getElementById("Description").value;
+    const inputDate = document.getElementById("DueDate").valueAsDate;
+    const inputStatus = document.getElementById("Status").value;
+
+    const allValid = form.checkValidity();
     event.preventDefault();
-    if (!allValid) {
+
+    if (allValid) {
+      taskManager.addTask(inputName, inputAssignedTo, inputDescription, inputDate, inputStatus);
     }
   });
 
