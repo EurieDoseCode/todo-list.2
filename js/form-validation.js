@@ -37,6 +37,8 @@ function validateTaskForm(form) {
     const allValid = form.checkValidity(); // variable calls method to check all fields in form are valid
     if (!allValid) {
       event.preventDefault();
+    } else {
+      addTask(); // this needs a parameter, where task = task const in class TaskManager
     }
   });
 
