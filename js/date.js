@@ -1,7 +1,8 @@
 // DATE
 const todayDate = document.querySelector('#currentDate');
 
-function printDate(){
+// Prints out the current date and time
+function printDate() {
     const today = new Date();
     let year = today.getFullYear();
     let month = today.getMonth();
@@ -13,8 +14,8 @@ function printDate(){
     let ampm = hours >= 12 ? 'PM' : 'AM';
     hours = hours % 12;
     hours = hours ? hours : 12;
-    minutes = minutes < 10 ? '0'+minutes : minutes;
-    seconds = seconds < 10 ? '0'+seconds : seconds;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
     const time = hours + ':' + minutes + ':' + seconds + ' ' + ampm;
 
     const monthList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]

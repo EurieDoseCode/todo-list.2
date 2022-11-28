@@ -1,263 +1,159 @@
 <!DOCTYPE html>
 <html lang="en-AU">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lofi Todo List</title>
 
-    <!-- CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lofi Todo List</title>
 
-    <!-- FONTS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;700&family=Nanum+Pen+Script&family=Satisfy&display=swap" rel="stylesheet">
+  <!-- CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
 
-    <!-- SCRIPT -->
-    <script defer src="./js/date.js"></script>
-    <script defer src="./js/form-validation.js"></script>
-    <script defer src="./js/todo-list.js"></script>
-  </head>
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;700&family=Nanum+Pen+Script&family=Satisfy&display=swap"
+    rel="stylesheet">
 
-  <body>
-    <!-- Content starts here -->
-    <div class="container">
+  <!-- SCRIPT -->
+  <script defer src="./js/Date.js"></script>
+  <script defer src="./js/TaskManager.js"></script>
+  <script defer src="./js/FormValidation.js"></script>
+</head>
 
-      <!-- HEADER -->
-      <div class="row">
-        <div class="col" id="equalizer">
-          <img src="./img/lofi-girl.png" alt="Lofi girl" id="Logo">
-        </div>
+<body>
+  <div class="container">
+    <!-- HEADER -->
+    <div class="row">
+      <div class="col" id="equalizer">
+        <img src="./img/lofi-girl.png" alt="Lofi girl" id="Logo">
       </div>
-      <div class="row"></div><!-- isn't actually doing anything rn, need to check later-->
-        <div class="col text-center">
-          <h1 class="font-heading" id="line-heading">Lofi Girl Todo List</h1>
-          <span id="currentDate">Loading...</span>
-        </div>
-        <!-- HEADER END -->
+    </div>
+    <div class="row"></div>
+    <div class="col text-center">
+      <h1 class="font-heading" id="line-heading">Lofi Girl Todo List</h1>
+      <span id="currentDate">Loading...</span>
+    </div>
 
-      <!-- TO DO APP START-->
-      <main>
-        <!-- Accordion start -->
-        <div class="accordion accordion-flush" id="accordionTodoAdd">
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingOne">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">Add item to list</button>
-            </h2>
-              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionTodoAdd">
-                <div class="accordion-body">
-                  <!-- Task create form start -->
-                  <form class="row">
-                    <div class="col-xs-12 col-md-6"><!-- Task details -->
-                      <div>
-                        <label class="form-label">Task: <input class="form-control" id="Name" type="text" minlength="9" required></label><!--Nesting inside label = association, reducing code; see https://webaim.org/techniques/forms/controls#input-->
-                      </div>
-                      <div>
-                        <label class="form-label">Task description: <textarea class="form-control" name="Description" id="Description" cols="40" rows="4" minlength="16" required></textarea></label>
-                      </div>
-                     </div>
-                    <div class="col-xs-12 col-md-6"><!-- Task status -->
-                      <div id="formAssignedTo">
-                        <label class="form-label">Assigned to:
-                          <input class="form-control" type="text" list="AssignedList" id="AssignedTo" name="AssignedTo" minlength="9" required>
-                          <datalist id="AssignedList">
-                            <option value="Eurie">Eurie</option>
-                            <option value="V-K">V-K</option>
-                            <option value="Sarah Dowling">Sarah Dowling</option>
-                          </datalist>
-                        </label>
-                      </div>
-                    <div id="formDueDate">
-                      <label class="form-label">Due date: <input class="form-control" type="date" id="DueDate" pattern="\d{4}-\d{2}-\d{2}" required></label>
-                    </div>
-                    <div>
-                      <label class="form-label">Status:
-                        <select class="form-select" id="Status" required>
-                            <option value="">(select one)</option>
-                            <option value="TODO">To-Do</option>
-                            <option value="IN-PROGRESS">In Progress</option>
-                            <option value="REVIEW">Review</option>
-                            <option value="DONE">Done</option>
-                        </select>
-                      </label>
-                    </div>
+    <!-- BODY -->
+    <main>
+      <!-- Accordion -->
+      <div class="accordion accordion-flush" id="accordionTodoAdd">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">Add item to
+              list</button>
+          </h2>
+          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+            data-bs-parent="#accordionTodoAdd">
+            <div class="accordion-body">
+              <!-- Form -->
+              <form class="row">
+                <div class="col-xs-12 col-md-6">
+                  <div>
+                    <label class="form-label">Task: <input class="form-control" id="Name" type="text" minlength="9"
+                        required></label>
                   </div>
-                  <div class="mt-3 gap-2 col-12 mx-auto"><!-- Buttons -->
-                    <button class="btn btn-primary" type="submit" id="btnSubmit">Submit</button> <!--make coloured because CTA-->
-                    <button class="btn btn-outline-danger" type="button">Clear</button>
+                  <div>
+                    <label class="form-label">Task description: <textarea class="form-control" name="Description"
+                        id="Description" cols="40" rows="4" minlength="16" required></textarea></label>
                   </div>
-                </form>
-                <!-- Add task form end -->
-              </div>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                  <div id="formAssignedTo">
+                    <label class="form-label">Assigned to:
+                      <input class="form-control" type="text" list="AssignedList" id="AssignedTo" name="AssignedTo"
+                        minlength="9" required>
+                      <datalist id="AssignedList">
+                        <option value="Eurie">Eurie</option>
+                        <option value="V-K">V-K</option>
+                        <option value="Sarah Dowling">Sarah Dowling</option>
+                      </datalist>
+                    </label>
+                  </div>
+                  <div id="formDueDate">
+                    <label class="form-label">Due date: <input class="form-control" type="date" id="DueDate"
+                        pattern="\d{4}-\d{2}-\d{2}" required></label>
+                  </div>
+                  <div>
+                    <label class="form-label">Status:
+                      <select class="form-select" id="Status" required>
+                        <option value="">(select one)</option>
+                        <option value="TODO">To-Do</option>
+                        <option value="IN-PROGRESS">In Progress</option>
+                        <option value="REVIEW">Review</option>
+                        <option value="DONE">Done</option>
+                      </select>
+                    </label>
+                  </div>
+                </div>
+                <div class="mt-3 gap-2 col-12 mx-auto">
+                  <button class="btn btn-primary" type="submit" id="btnSubmit">Submit</button>
+                  <button class="btn btn-outline-danger" type="button">Clear</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
-        <!-- Accordion end -->
-        <!-- Todo list start -->
-        <ul id="list">
-          <li class="card p-3"><!-- CARD -->
-            <!-- Card content start: Task 1 -->
-            <div class="Status done">Done</div><!-- Task 1 Row: Status-->
-            <div class="row"><!-- Task 1 Row: Name, buttons-->
-              <div class="col-7"><!-- Task 1 Name-->
-                <div class="display-6 Name">Task #01</div>
-              </div>
-              <div class="col-5"><!-- Task 1 Buttons -->
-                <div class="text-end">
-                  <a href="#" class="btn btn-success">Finish</a>
-                  <a href="#" class="btn btn-danger">X</a>
-                </div>
-              </div>
-            </div>
-            <div class="row"><!-- Task 1 Row: Description -->
-              <div class="Description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, cupiditate!</div>
-            </div>
-            <div class="row"><!-- Task 1 Row: AssignedTo, DueDate-->
-              <div class="col-7"><!-- Task 1 AssignedTo-->
-                <div class="AssignedTo">Sarah</div>
-              </div>
-              <div class="col-5"><!--- Task 1 DueDate-->
-                <div class="DueDate text-end">Due Date: <u>28/11/2022</u></div>
-              </div>
-            </div>
-          </li>
+      </div>
 
-          <li class="card p-3"><!-- CARD -->
-            <!-- Card content start: Task 2 -->
-            <div class="Status in-progress">In Progress</div><!-- Task 2 Row: Status-->
-            <div class="row"><!-- Task 2 Row: Name, buttons-->
-              <div class="col-7"><!-- Task 2 Name-->
-                <div class="display-6 Name">Task #02</div>
-              </div>
-              <div class="col-5"><!-- Task 2 Buttons -->
-                <div class="text-end">
-                  <a href="#" class="btn btn-success">Finish</a>
-                  <a href="#" class="btn btn-danger">X</a>
-                </div>
+      <!-- TODO LIST -->
+      <ul id="list">
+        <li class="card p-3">
+          <div class="Status done">Done</div>
+          <div class="row">
+            <div class="col-7">
+              <div class="display-6 Name">Task #01</div>
+            </div>
+            <div class="col-5">
+              <div class="text-end">
+                <a href="#" class="btn btn-success">Finish</a>
+                <a href="#" class="btn btn-danger">X</a>
               </div>
             </div>
-            <div class="row"><!-- Task 2 Row: Description -->
-              <div class="Description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, cupiditate!</div>
+          </div>
+          <div class="row">
+            <div class="Description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, cupiditate!
             </div>
-            <div class="row"><!-- Task 2 Row: AssignedTo, DueDate-->
-              <div class="col-7"><!-- Task 2 AssignedTo-->
-                <div class="AssignedTo">Eurie</div>
-              </div>
-              <div class="col-5"><!--- Task 2 DueDate-->
-                <div class="DueDate text-end">Due Date: <u>29/11/2022</u></div>
-              </div>
+          </div>
+          <div class="row">
+            <div class="col-7">
+              <div class="AssignedTo">Sarah</div>
             </div>
-          </li>
+            <div class="col-5">
+              <div class="DueDate text-end">Due Date: <u>28/11/2022</u></div>
+            </div>
+          </div>
+        </li>
+    </main>
 
-          <li class="card p-3"><!-- CARD -->
-            <!-- Card content start: Task 3 -->
-            <div class="Status review">Review</div><!-- Task 3 Row: Status-->
-            <div class="row"><!-- Task 3 Row: Name, buttons-->
-              <div class="col-7"><!-- Task 3 Name-->
-                <div class="display-6 Name">Task #03</div>
-              </div>
-              <div class="col-5"><!-- Task 3 Buttons -->
-                <div class="text-end">
-                  <a href="#" class="btn btn-success">Finish</a>
-                  <a href="#" class="btn btn-danger">X</a>
-                </div>
-              </div>
-            </div>
-            <div class="row"><!-- Task 3 Row: Description -->
-              <div class="Description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, cupiditate!</div>
-            </div>
-            <div class="row"><!-- Task 3 Row: AssignedTo, DueDate-->
-              <div class="col-7"><!-- Task 3 AssignedTo-->
-                <div class="AssignedTo">Eurie</div>
-              </div>
-              <div class="col-5"><!--- Task 3 DueDate-->
-                <div class="DueDate text-end">Due Date: <u>30/11/2022</u></div>
-              </div>
-            </div>
-          </li>
+    <!-- FOOTER-->
+    <footer class="row">
+      <div class="col text-center">
+        <a href="https://github.com/EurieDoseCode" class="text-decoration-none GitHub" title="Eurie">
+          <img src="./img/github.svg" alt="Github" height="20px" width="20px">
+          Eurie
+        </a>
+        <a href="https://github.com/sarahloui-se" class="text-decoration-none GitHub" title="Sarah">
+          <img src="./img/github.svg" alt="Github" height="20px" width="20px">
+          Sarah
+        </a>
+        <a href="https://github.com/katsuroyasu" class="text-decoration-none GitHub" title="V-K">
+          <img src="./img/github.svg" alt="Github" height="20px" width="20px">
+          V-K
+        </a>
+      </div>
+    </footer>
+  </div>
 
-          <li class="card p-3"><!-- CARD -->
-            <!-- Card content start: Task 4 -->
-            <div class="Status to-do">To Do</div><!-- Task 4 Row: Status-->
-            <div class="row"><!-- Task 4 Row: Name, buttons-->
-              <div class="col-7"><!-- Task 4 Name-->
-                <div class="display-6 Name">Task #04</div>
-              </div>
-              <div class="col-5"><!-- Task 4 Buttons -->
-                <div class="text-end">
-                  <a href="#" class="btn btn-success">Finish</a>
-                  <a href="#" class="btn btn-danger">X</a>
-                </div>
-              </div>
-            </div>
-            <div class="row"><!-- Task 4 Row: Description -->
-              <div class="Description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, cupiditate!</div>
-            </div>
-            <div class="row"><!-- Task 4 Row: AssignedTo, DueDate-->
-              <div class="col-7"><!-- Task 4 AssignedTo-->
-                <div class="AssignedTo">V-K</div>
-              </div>
-              <div class="col-5"><!--- Task 4 DueDate-->
-                <div class="DueDate text-end">Due Date: <u>01/12/2022</u></div>
-              </div>
-            </div>
-          </li>
+  <!-- BOOTSTRAP -->
+  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+</body>
 
-          <li class="card p-3"><!-- CARD -->
-            <!-- Card content start: Task 5 -->
-            <div class="Status done">Done</div><!-- Task 5 Row: Status-->
-            <div class="row"><!-- Task 5 Row: Name, buttons-->
-              <div class="col-7"><!-- Task 5 Name-->
-                <div class="display-6 Name">Task #05</div>
-              </div>
-              <div class="col-5"><!-- Task 5 Buttons -->
-                <div class="text-end">
-                  <a href="#" class="btn btn-success">Finish</a>
-                  <a href="#" class="btn btn-danger">X</a>
-                </div>
-              </div>
-            </div>
-            <div class="row"><!-- Task 5 Row: Description -->
-              <div class="Description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, cupiditate!</div>
-            </div>
-            <div class="row"><!-- Task 5 Row: AssignedTo, DueDate-->
-              <div class="col-7"><!-- Task 5 AssignedTo-->
-                <div class="AssignedTo">Sarah</div>
-              </div>
-              <div class="col-5"><!--- Task 5 DueDate-->
-                <div class="DueDate text-end">Due Date: <u>25/11/2022</u></div>
-              </div>
-            </div>
-          </li>
-        </ul>
-      <!-- To do list end -->
-      </main>
-
-      <!-- FOOTER start-->
-      <footer class="row">
-        <div class="col text-center">
-          <a href="https://github.com/EurieDoseCode" class="text-decoration-none GitHub" title="Eurie">
-            <img src="./img/github.svg" alt="Github" height="20px" width="20px">
-            Eurie
-          </a>
-
-          <a href="https://github.com/sarahloui-se" class="text-decoration-none GitHub" title="Sarah">
-            <img src="./img/github.svg" alt="Github" height="20px" width="20px">
-            Sarah
-          </a>
-
-          <a href="https://github.com/katsuroyasu" class="text-decoration-none GitHub" title="V-K">
-            <img src="./img/github.svg" alt="Github" height="20px" width="20px">
-            V-K
-          </a>
-        </div>
-      </footer>
-      <!-- FOOTER end -->
-    </div>
-
-    <!-- Content ends here -->
-    <!-- BOOTSTRAP -->
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-  </body>
 </html>

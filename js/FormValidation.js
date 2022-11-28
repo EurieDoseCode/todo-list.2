@@ -35,8 +35,8 @@ function validateTaskForm(form) {
   // Event listener: submit
   form.addEventListener('submit', (event) => {
     const allValid = form.checkValidity(); // variable calls method to check all fields in form are valid
+    event.preventDefault();
     if (!allValid) {
-      event.preventDefault();
     }
   });
 
@@ -85,7 +85,7 @@ function validateTaskForm(form) {
 function errorMessage(field) {
   const validity = field.validity;
   if (validity.valueMissing) { // is the field empty?
-    switch (field.attributes.id.nodeValue)  { //target by value in id
+    switch (field.attributes.id.nodeValue) { //target by value in id
       case 'Name':
         return 'Task cannot be empty';
         break;
