@@ -1,5 +1,3 @@
-//TODO LIST
-
 // Variables
 const form = document.querySelector('form');
 const fields = Array.from(form.elements); // create an array from all elements in a form
