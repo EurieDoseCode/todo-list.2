@@ -1,10 +1,9 @@
-/* TODO LIST
-- (stretch) toggle error p's
-*/
+//TODO LIST
 
 // Variables
 const form = document.querySelector('form');
 const fields = Array.from(form.elements); // create an array from all elements in a form
+const taskManager = new TaskManager(); /* EXPORT form values to TaskManager.js */
 //const labels = [];
 
 function necessaryVariables() {
@@ -32,13 +31,19 @@ function necessaryVariables() {
 function validateTaskForm(form) {
   form.setAttribute('novalidate', ''); // prevents browser default validation appearing, can now override
 
-  // Event listener: submit
+  // IMPORT user input to form values
   form.addEventListener('submit', (event) => {
+    const inputName = document.getElementById("Name").value;
+    const inputAssignedTo = document.getElementById("AssignedTo").value;
+    const inputDescription = document.getElementById("Description").value;
+    const inputDate = document.getElementById("DueDate").value;
+    const inputStatus = document.getElementById("Status").value;
+
     const allValid = form.checkValidity(); // variable calls method to check all fields in form are valid
-    if (!allValid) {
-      event.preventDefault();
-    } else {
-      addTask(); // this needs a parameter, where task = task const in class TaskManager
+    event.preventDefault();
+    
+    if (allValid) {
+      taskManager.addTask(inputName, inputAssignedTo, inputDescription, inputDate, inputStatus);
     }
   });
 
@@ -87,7 +92,7 @@ function validateTaskForm(form) {
 function errorMessage(field) {
   const validity = field.validity;
   if (validity.valueMissing) { // is the field empty?
-    switch (field.attributes.id.nodeValue)  { //target by value in id
+    switch (field.attributes.id.nodeValue) { //target by value in id
       case 'Name':
         return 'Task cannot be empty';
         break;
