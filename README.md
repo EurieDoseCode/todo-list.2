@@ -2,5 +2,8 @@
 Created as an assessment task for Generation Australia's JWD09 Cohort.
 
 ## Next to address
-### Form validation
-- Fix CSS styling
+### Task manager
+- Display date in Due Date as DD/MM/YYYY
+
+### Final sprint
+- Plan for list of tasks
