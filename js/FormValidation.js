@@ -39,9 +39,9 @@ function validateTaskForm(form) {
     const inputDate = document.getElementById("DueDate").value;
     const inputStatus = document.getElementById("Status").value;
 
-    const allValid = form.checkValidity();
+    const allValid = form.checkValidity(); // variable calls method to check all fields in form are valid
     event.preventDefault();
-
+    
     if (allValid) {
       taskManager.addTask(inputName, inputAssignedTo, inputDescription, inputDate, inputStatus);
     }
