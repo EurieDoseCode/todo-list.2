@@ -39,7 +39,7 @@ class TaskManager {
           </div>
           <div class="col-5">
             <div class="text-end">
-              <a href="#" class="btn btn-success">Finish</a>
+              <a href="#" class="btn btn-success">Mark as done</a>
               <a href="#" class="btn btn-danger">X</a>
             </div>
           </div>
