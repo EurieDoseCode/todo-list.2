@@ -1,74 +1,70 @@
 class TaskManager {
   // Just a placeholder constructor that will do stuff (in the future)
   constructor() {
-      this.id = 0;
-      this.tasks = [];
+    this.id = 0;
+    this.tasks = [];
 
-      //load localStorage
-      //remember to update the ID to the last task after loading
-      this.render()
+    // load localStorage
+    this.tasks = JSON.parse(localStorage.getItem("taskManager"));
+    if (this.tasks === null) {
+      this.tasks = [];
+    };
+    this.render();
   };
 
   // IMPORT class values to factory function
   addTask(Name, Description, AssignedTo, DueDate, Status) {
-      const task = {
-          ID: ++this.id,
-          Name,
-          Description,
-          AssignedTo,
-          DueDate,
-          Status
-      }
-      
-      this.tasks.push(task);
-      console.log(this.tasks);
-      this.render();
+    const task = {
+      ID: ++this.id,
+      Name,
+      Description,
+      AssignedTo,
+      DueDate,
+      Status
+    }
+
+    this.tasks.push(task);
+    console.log(this.tasks);
+    this.render();
   };
 
-  // returns a list (array) of all tasks where a status (is equal to the status) passes as an argument
+  // RETURN a list (array) of all tasks
   getTasksWithStatus(status) {
-    this.tasks.fliter(task =>{
-      if (task.Status===status){
+    this.tasks.fliter(task => {
+      if (task.Status === status) {
         return task
-      }
+      };
     })
-    //TASK 8 [MARK AS DONE]
-    //loop (or an array filter) with if statments (eg. status = status, id = id for deleting tasks)
-    /*REFERENCE: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter*/
-  }
+  };
+  /*REFERENCE: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter*/
 
   // UPDATE status to done
   markTask(ID) {
-    this.tasks.forEach(task =>{
-      if (task.ID===ID){
-        task.Status="DONE"
+    this.tasks.forEach(task => {
+      if (task.ID === ID) {
+        task.Status = "DONE"
         return
-      }
+      };
     })
-    this.render()
-    //TASK 8 [MARK AS DONE]
-    //updating "status" to done
-
+    this.render();
   }
 
   // DELETE task
   deleteTask(ID) {
-    const temp= this.tasks.filter(task =>{
-      if (task.ID !== ID){
+    const temp = this.tasks.filter(task => {
+      if (task.ID !== ID) {
         return task
       }
     })
-    this.tasks=temp
-    this.render ()
-    // TASK 10 [DELETE TASK]
-    //deleting "tasks"
+    this.tasks = temp;
+    this.render();
   }
 
-  // HTML TEMPLATE of task list
+  // HTML TEMPLATE of the task list
   createTaskHTML(task) {
     let card = document.createElement('li');
     card.classList.add('card', 'p-3');
-    card.setAttribute('id', `task-${task.ID}`)
+    card.setAttribute('id', `${task.ID}`)
     card.innerHTML = `
       <div class="Status ${task.Status.toLowerCase()}">${task.Status}</div>
         <div class="row">
@@ -101,13 +97,13 @@ class TaskManager {
   // EXPORT task list to HTML
   render() {
     const displayList = document.querySelector("#list");
-    displayList.innerHTML=""
+    displayList.innerHTML = "";
     for (let index = 0; index < this.tasks.length; index++) {
       const task = this.tasks[index];
-      
-    displayList.appendChild(this.createTaskHTML(task)); //console.log(typeof(card));
+      displayList.appendChild(this.createTaskHTML(task)); //console.log(typeof(card));
     }
-    //TASK 9 [LOCALSTORAGE]
+
     //save to localStorage
+    localStorage.setItem("taskManager", JSON.stringify(this.tasks));
   };
 };

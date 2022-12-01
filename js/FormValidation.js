@@ -24,15 +24,13 @@ function necessaryVariables() {
   };*/
 }
 
-// MARK task as done
+// MARK task as done (event)
 function finish(event) {
   const fin = event.target.closest("li");
-  const taskID= Number(fin.id.at(-1))
-  taskManager.deleteTask(taskID)
-  /* REFERENCE: https://codingbeautydev.com/blog/javascript-get-last-character-of-string/#:~:text=String%20charAt()%20Method,the%20last%20character%20of%20str%20 */
-    // String at() Method
-  // get fin.id then get the last character from the id
+  const taskID= Number(fin.id);
+  taskManager.markTask(taskID);
 }
+/* REFERENCE: https://codingbeautydev.com/blog/javascript-get-last-character-of-string/#:~:text=String%20charAt()%20Method,the%20last%20character%20of%20str%20 */
 
 // Form validation
 /*Heavy assistance from https://oliverjam.es/articles/better-native-form-validation*/
@@ -96,11 +94,11 @@ function validateTaskForm(form) {
   });
 };
 
+// DELETE task (event)
 function TaskDelete(event){
   const fin = event.target.closest("li");
-  const taskID= Number(fin.id.at(-1))
-  taskManager.deleteTask(taskID)
-
+  const taskID= Number(fin.id);
+  taskManager.deleteTask(taskID);
 }
 
 // Custom error messages
@@ -110,48 +108,36 @@ function errorMessage(field) {
     switch (field.attributes.id.nodeValue) { //target by value in id
       case 'Name':
         return 'Task cannot be empty';
-        break;
       case 'Description':
         return 'Task description cannot be empty';
-        break;
       case 'AssignedTo':
         return 'Assigned to cannot be empty';
-        break;
       case 'DueDate':
         return 'Please select a due date';
-        break;
       case 'Status':
         return 'Status must be selected';
-        break;
       default:
         return field.validationMessage;
-        break;
     };
   };
   if (validity.tooShort) { // has minlength been hit?
     switch (field.attributes.id.nodeValue) {
       case 'Name':
         return 'Task needs to be 9 characters or longer';
-        break;
       case 'Description':
         return 'Task description needs to be 16 characters or longer';
-        break;
       case 'AssignedTo':
         return 'Assigned to needs to be 9 characters or longer';
-        break;
       default:
         return field.validationMessage;
-        break;
     };
   };
   if (validity.rangeUnderflow) { // was a past date selected?
     switch (field.attributes.id.nodeValue) {
       case 'DueDate':
         return 'Due date cannot be in the past';
-        break;
       default:
         return field.validationMessage;
-        break;
     }
   }
 };
