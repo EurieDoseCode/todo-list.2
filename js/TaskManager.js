@@ -1,11 +1,12 @@
 class TaskManager {
   // Just a placeholder constructor that will do stuff (in the future)
-  constructor(id) {
+  constructor() {
       this.id = 0;
       this.tasks = [];
 
       //load localStorage
       //remember to update the ID to the last task after loading
+      this.render()
   };
 
   // IMPORT class values to factory function
@@ -21,11 +22,16 @@ class TaskManager {
       
       this.tasks.push(task);
       console.log(this.tasks);
-      this.createTaskHTML(task);
+      this.render();
   };
 
   // returns a list (array) of all tasks where a status (is equal to the status) passes as an argument
   getTasksWithStatus(status) {
+    this.tasks.fliter(task =>{
+      if (task.Status===status){
+        return task
+      }
+    })
     //TASK 8 [MARK AS DONE]
     //loop (or an array filter) with if statments (eg. status = status, id = id for deleting tasks)
     /*REFERENCE: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter*/
@@ -33,12 +39,27 @@ class TaskManager {
 
   // UPDATE status to done
   markTask(ID) {
+    this.tasks.forEach(task =>{
+      if (task.ID===ID){
+        task.Status="DONE"
+        return
+      }
+    })
+    this.render()
     //TASK 8 [MARK AS DONE]
     //updating "status" to done
+
   }
 
   // DELETE task
   deleteTask(ID) {
+    const temp= this.tasks.filter(task =>{
+      if (task.ID !== ID){
+        return task
+      }
+    })
+    this.tasks=temp
+    this.render ()
     // TASK 10 [DELETE TASK]
     //deleting "tasks"
   }
@@ -57,7 +78,7 @@ class TaskManager {
           <div class="col-5">
             <div class="text-end">
               <a href="#" class="btn btn-success" onclick="finish(event)">Mark as Done</a>
-              <a href="#" class="btn btn-danger">X</a>
+              <a href="#" class="btn btn-danger" onclick="TaskDelete(event)">X</a>
             </div>
           </div>
         </div>
@@ -74,14 +95,18 @@ class TaskManager {
         </div
       </div>
     `;
-    this.render(card);
+    return card
   };
 
   // EXPORT task list to HTML
-  render(card) {
+  render() {
     const displayList = document.querySelector("#list");
-    displayList.appendChild(card); //console.log(typeof(card));
-    
+    displayList.innerHTML=""
+    for (let index = 0; index < this.tasks.length; index++) {
+      const task = this.tasks[index];
+      
+    displayList.appendChild(this.createTaskHTML(task)); //console.log(typeof(card));
+    }
     //TASK 9 [LOCALSTORAGE]
     //save to localStorage
   };
