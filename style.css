@@ -385,10 +385,9 @@ label {
   border: none;
 }
 
-/*---------- FINISH ----------*/
+/*---------- MARK AS DONE ----------*/
 .btn-success {
   background-color: rgb(130, 194, 98);
-  width: 4.7em;
 }
 
 .btn-success:hover {
