@@ -24,6 +24,15 @@ function necessaryVariables() {
   };*/
 }
 
+// MARK task as done
+function finish(event) {
+  const fin = event.target.closest("li");
+  console.log(Number(fin.id.at(-1)));
+  /* REFERENCE: https://codingbeautydev.com/blog/javascript-get-last-character-of-string/#:~:text=String%20charAt()%20Method,the%20last%20character%20of%20str%20 */
+    // String at() Method
+  // get fin.id then get the last character from the id
+}
+
 // Form validation
 /*Heavy assistance from https://oliverjam.es/articles/better-native-form-validation*/
 function validateTaskForm(form) {
@@ -41,7 +50,7 @@ function validateTaskForm(form) {
     event.preventDefault();
     
     if (allValid) {
-      taskManager.addTask(inputName, inputAssignedTo, inputDescription, inputDate, inputStatus);
+      taskManager.addTask(inputName, inputDescription, inputAssignedTo, inputDate, inputStatus);
     }
   });
 
